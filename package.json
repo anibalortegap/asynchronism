@@ -12,11 +12,11 @@
     "url": "git+https://github.com/anibalortegap/asynchronism.git"
   },
   "keywords": [
-    "callbacks",
+    "callback",
     "promise",
     "async"
   ],
-  "author": "Anibal Ortega Piedrahita",
+  "author": "Anibal Fernando Ortega Piedrahita",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/anibalortegap/asynchronism/issues"

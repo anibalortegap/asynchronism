@@ -2,24 +2,24 @@ let XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 const API_URL = 'https://rickandmortyapi.com/api/character/';
 
-//función para traer información de la API y recibe un callback
+//function to extract API information and receive a callback
 function fetchData(url_api, callback) {
-    //crear un instancia del objeto XMLHttpRequest
+    //instantiate the object XMLHttpRequest
     let xhttp = new XMLHttpRequest();
-    //metodo = GET  -- URL -- Async = true          
+    //method = GET  -- URL -- Async = true          
     xhttp.open('GET', url_api, true);
-    //escuchamos los cambios de la conexión
+    //listen to the connection changes
     xhttp.onreadystatechange = function(event) {
         /* AJAX - server response 
-            0: requesrt not initialized
+            0: request not initialized
             1: server connection established
-            2: request received*
+            2: request received
             3: processing request
             4: request finished and response is ready 
         */
-        //validar si se la conexión es exitosa
+        //validate connection successful
         if(xhttp.readyState === 4){
-            /* HTTP Sttus
+            /* HTTP Status
                 200: OK
                 400: Bad Request
                 401: Unauthorized
@@ -29,10 +29,10 @@ function fetchData(url_api, callback) {
                 502: Bad Gateway
                 503: Service unavailable
             */
-            //validar http status
+            //validate http status
             if(xhttp.status === 200){
-                /* ejecutamos nuestro callback, en node el primer parametro es el error. 
-                    parsemos nuestra respuesta de string -json
+                /* run callback, in node the first element is the error. 
+                    parse response the string -json
                 */
                 callback(null, JSON.parse(xhttp.responseText));
             } else {
